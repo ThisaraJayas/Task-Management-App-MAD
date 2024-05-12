@@ -16,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins"
         android:text="Update Task"
-        android:textColor="@color/orange"
+        android:textColor="@color/blue"
         android:textSize="24sp"/>
 
     <ImageView
@@ -26,7 +26,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@id/editTaskHeading"
         android:layout_marginEnd="6dp"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/blue"
         android:src="@drawable/baseline_done_24" />
     <EditText
         android:id="@+id/updateTitleEditText"
@@ -36,7 +36,7 @@
         android:padding="12dp"
         android:textSize="20sp"
         android:layout_below="@id/editTaskHeading"
-        android:background="@drawable/orange_border"
+        android:background="@drawable/blue_border"
         android:layout_marginTop="16dp"
         android:maxLines="1"
         android:fontFamily="@font/poppins"/>
@@ -49,7 +49,7 @@
         android:padding="12dp"
         android:textSize="18sp"
         android:layout_below="@id/updateTitleEditText"
-        android:background="@drawable/orange_border"
+        android:background="@drawable/blue_border"
         android:layout_marginTop="12dp" />
 
 </RelativeLayout>

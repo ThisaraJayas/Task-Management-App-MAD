@@ -3,6 +3,7 @@ package com.example.task_management_app_mad
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.task_management_app_mad.databinding.ActivityMainBinding
 
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var taskAdapter :TaskAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.sleep(4000)
+        installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
