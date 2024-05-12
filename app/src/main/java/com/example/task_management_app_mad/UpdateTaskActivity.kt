@@ -21,6 +21,7 @@ class UpdateTaskActivity : AppCompatActivity() {
             finish()
             return
         }
+
         val task = db.getTaskById(taskId)
         binding.updateTitleEditText.setText(task.title)
         binding.updateContentEditText.setText(task.content)
