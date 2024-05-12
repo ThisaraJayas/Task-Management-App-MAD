@@ -41,16 +41,40 @@
         android:layout_marginTop="16dp"
         android:maxLines="1"
         android:fontFamily="@font/poppins"/>
+
     <EditText
         android:id="@+id/contentEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="Enter the Description"
-        android:gravity="top"
-        android:padding="12dp"
-        android:textSize="18sp"
+        android:layout_height="290dp"
         android:layout_below="@id/titleEditText"
+        android:layout_marginTop="12dp"
         android:background="@drawable/blue_border"
-        android:layout_marginTop="12dp" />
+        android:gravity="top"
+        android:hint="Enter the Description"
+        android:padding="12dp"
+        android:textSize="18sp" />
+
+<!--    new-->
+    <TextView
+        android:id="@+id/spinnertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contentEditText"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins"
+        android:text="Task Status"
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/addSpinnerStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnertitle"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/blue_border"
+        android:entries="@array/spinnerOptions"
+        android:gravity="top"
+        android:padding="10dp" />
 
 </RelativeLayout>

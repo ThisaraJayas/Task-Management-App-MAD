@@ -43,7 +43,7 @@
     <EditText
         android:id="@+id/updateContentEditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="290dp"
         android:hint="Enter the Description"
         android:gravity="top"
         android:padding="12dp"
@@ -51,5 +51,27 @@
         android:layout_below="@id/updateTitleEditText"
         android:background="@drawable/blue_border"
         android:layout_marginTop="12dp" />
+
+<!--    new-->
+    <TextView
+        android:id="@+id/spinnertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins"
+        android:text="Task Status"
+        android:layout_below="@+id/updateContentEditText"
+        android:textColor="@color/blue"
+        android:textSize="18sp" />
+    <Spinner
+        android:id="@+id/updateSpinnerStaus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnertitle"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/blue_border"
+        android:entries="@array/spinnerOptions"
+        android:gravity="top"
+        android:padding="10dp" />
 
 </RelativeLayout>

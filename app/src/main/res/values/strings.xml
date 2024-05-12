@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Task-Management-App-MAD</string>
+    <string-array name="spinnerOptions">
+        <item>Pending</item>
+        <item>Completed</item>
+    </string-array>
 </resources>
