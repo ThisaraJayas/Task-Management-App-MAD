@@ -13,12 +13,13 @@ class TaskDatabaseHelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAM
         private const val COLUMN_ID = "id"
         private const val COLUMN_TITLE = "title"
         private const val COLUMN_CONTENT = "content"
+        private const val COLUMN_STATUS ="status"
 
 
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT)"
+        val createTableQuery = "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT,$COLUMN_STATUS TEXT)"
         db?.execSQL(createTableQuery)
     }
 
@@ -32,6 +33,7 @@ class TaskDatabaseHelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAM
         val values =ContentValues().apply {
             put(COLUMN_TITLE, task.title)
             put(COLUMN_CONTENT, task.content)
+            put(COLUMN_STATUS, task.status)
         }
         db.insert(TABLE_NAME,null, values)
         db.close()
@@ -45,8 +47,9 @@ class TaskDatabaseHelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAM
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
             val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
             val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+            val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
 
-            val task = Task(id,title,content)
+            val task = Task(id,title,content,status)
             taskList.add(task)
         }
         cursor.close()
@@ -58,6 +61,7 @@ class TaskDatabaseHelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAM
         val values = ContentValues().apply {
             put(COLUMN_TITLE,task.title)
             put(COLUMN_CONTENT,task.content)
+            put(COLUMN_STATUS, task.status)
         }
         val whereClause = "$COLUMN_ID = ?"
         val whereArgs = arrayOf(task.id.toString())
@@ -73,10 +77,11 @@ class TaskDatabaseHelper(context:Context):SQLiteOpenHelper(context, DATABASE_NAM
         val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
         val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
         val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+        val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
 
         cursor.close()
         db.close()
-        return Task(id, title, content)
+        return Task(id, title, content,status)
     }
     fun deleteTask(taskId: Int){
         val db = writableDatabase

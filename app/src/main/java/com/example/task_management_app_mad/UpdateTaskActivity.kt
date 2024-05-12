@@ -24,11 +24,17 @@ class UpdateTaskActivity : AppCompatActivity() {
         val task = db.getTaskById(taskId)
         binding.updateTitleEditText.setText(task.title)
         binding.updateContentEditText.setText(task.content)
+        val statusArray = resources.getStringArray(R.array.spinnerOptions) // Assuming you have a string array resource for status options
+        val statusIndex = statusArray.indexOf(task.status)
+        if (statusIndex != -1) {
+            binding.updateSpinnerStaus.setSelection(statusIndex)
+        }
 
         binding.updateSaveButton.setOnClickListener {
             val newTitle = binding.updateTitleEditText.text.toString()
             val newContent = binding.updateContentEditText.text.toString()
-            val updateTask = Task(taskId,newTitle,newContent)
+            val newStatus = binding.updateSpinnerStaus.selectedItem.toString()
+            val updateTask = Task(taskId,newTitle,newContent,newStatus)
             db.updateTask(updateTask)
             finish()
             Toast.makeText(this,"Task Updated", Toast.LENGTH_SHORT).show()
